@@ -103,6 +103,7 @@ Instead of spending hours at the end of each month sorting through scattered not
     }
 ```
 <b>Defining entity relations:-</b>
+
     * user can be part of many teams as a team_member, a team member can not contain more then one user.
     * a team member can have many roles and each role can apply to many team members.
     * a team can have many team members but a team member can not be  part of other teams.
