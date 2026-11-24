@@ -79,7 +79,9 @@ Instead of spending hours at the end of each month sorting through scattered not
             duration,
             Locations[],
             teams[],
-            Entries[]
+            Entries[],
+            reminders[]
+
         },
     Work_entery:{
             id
@@ -90,8 +92,28 @@ Instead of spending hours at the end of each month sorting through scattered not
             start_time
             end_time,
             duration,
+            reminders[],
             meta:{},
 
         },
-    Reminders:{}
+    Reminders:{
+        created_At,
+        active,
+        due_date
+    }
 ```
+<b>Defining entity relations</b>
+    - user can be part of many teams as a team_member, a team member can not contain more then one user
+    - a team member can have many roles and each role can apply to many team members
+    - a team can have many team members but a team member can not be  part of other teams
+    - a team can work on many projects and a project can have many teams working on it
+    - a project can have one work_type but many projects can subscribe to the samme work type
+    - a project can contain many locations and a location can have multiple projects at the same time
+    - a project can have many work entries but each work entry can only adress one project
+    - a project can have many reminders but a reminder can only subscribe to one project
+    - a work entry can have many reminders but a reminder can subscribe to one work entry
+
+    unsolved relational questions:-
+    * who creates the reminder and who does the reminder sends a notification to?
+    * if a project can have many teams does it make sense for it to have only one work type?
+    * if more then one team works on the same project under the same worktype then effectively are they one team?
