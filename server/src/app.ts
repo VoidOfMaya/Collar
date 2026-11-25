@@ -3,6 +3,8 @@ import { corsOpts } from './cors.js';
 import cors from 'cors';
 import passport from 'passport';
 import cookieParser from 'cookie-parser';
+import { pipe } from './features/routpipe.js';
+
 
 const app: Application = express();
 
@@ -19,7 +21,12 @@ app.use(passport.initialize());
 //parse cookies
 app.use(cookieParser(/*inserte a 32byte hex string cryptographic api key here*/));
 
-//API ENDPOINT:-
+// Business API ENDPOINTS:-
+app.use("/auth",pipe.authRouter)
+
+
+
+//Diagnostic API ENDPOINTS:-
 app.get("/health", (req: Request, res: Response)=>{
     console.log("Health endpoint active");
     const health :string = "ok"
