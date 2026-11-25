@@ -1,11 +1,13 @@
 import express, {Application, Request, Response, NextFunction} from 'express';
-//import { ApiError } from './errorHandler.js';
+import { corsOpts } from './cors.js';
+import cors from 'cors';
 import passport from 'passport';
 import cookieParser from 'cookie-parser';
 
 const app: Application = express();
 
 //task: set cors
+app.use(cors(corsOpts));
 
 app.use(express.json()); //=> parse request.string into a json object
 app.use(express.urlencoded({extended: true}));//=> Enable URL-encoded form data parsing
