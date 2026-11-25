@@ -1,7 +1,7 @@
 import express, {Application, Request, Response, NextFunction} from 'express';
 //import { ApiError } from './errorHandler.js';
-//import passport from 'passport';
-//import cookieParser from 'cookie-parser';
+import passport from 'passport';
+import cookieParser from 'cookie-parser';
 
 const app: Application = express();
 
@@ -12,7 +12,7 @@ app.use(express.urlencoded({extended: true}));//=> Enable URL-encoded form data 
 
 //passport setup
 //task call passport config midlleware 
-app.use(passport.intialize());
+app.use(passport.initialize());
 
 //parse cookies
 app.use(cookieParser(/*inserte a 32byte hex string cryptographic api key here*/));
