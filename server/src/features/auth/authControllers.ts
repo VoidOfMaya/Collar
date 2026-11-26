@@ -1,4 +1,4 @@
-import { Controller } from "../../utils/typeHelpers.js";
+import { Controller } from "../../types/controller.js"
 
 const refresh: Controller =async (req, res, next) =>{
     try{
@@ -14,14 +14,30 @@ const register: Controller =async (req, res, next) =>{
         next(err)
     }
 }
-const login: Controller =async (req, res, next) =>{
+
+const logout: Controller =async (req, res, next) =>{
     try{
         res.status(200).json({message: 'authentication route "/" accessed'})
     }catch(err){
         next(err)
     }
 }
-const logout: Controller =async (req, res, next) =>{
+//Login methods
+const localLogin: Controller =async (req, res, next) =>{
+    try{
+        res.status(200).json({message: 'authentication route "/" accessed'})
+    }catch(err){
+        next(err)
+    }
+}
+const googleLogin: Controller =async (req, res, next) =>{
+    try{
+        res.status(200).json({message: 'authentication route "/" accessed'})
+    }catch(err){
+        next(err)
+    }
+}
+const appleLogin: Controller =async (req, res, next) =>{
     try{
         res.status(200).json({message: 'authentication route "/" accessed'})
     }catch(err){
@@ -33,7 +49,7 @@ const logout: Controller =async (req, res, next) =>{
 const authControl = {
     refresh,
     register,
-    login,
+    localLogin,
     logout
 }
 

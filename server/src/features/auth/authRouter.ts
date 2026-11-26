@@ -5,7 +5,7 @@ const authRouter: Router= Router();
 
 authRouter.get('/refresh', authControl.refresh) 
 authRouter.post('/register', authControl.register) 
-authRouter.get('/login', authControl.login) 
+authRouter.get('/login', authControl.localLogin) 
 authRouter.get('/logout',authControl.logout )
 
 export{
